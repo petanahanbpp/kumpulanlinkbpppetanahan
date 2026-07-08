@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPL Pusat - Solusi & Layanan</title>
+    <style>
+        /* --- RESET & ROOT VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --radius: 12px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        
+        /* --- PROFILE SECTION --- */
+        .header img {
+          width: 100px;         /* Mengatur lebar logo */
+          height: auto;          /* Tinggi otomatis mengikuti proporsi agar tidak gepeng */
+          object-fit: contain;  /* Memastikan seluruh gambar logo terlihat utuh */
+          margin-bottom: 16px;
+          border-radius: 0;     /* Hapus jika Anda tidak ingin memaksanya jadi lingkaran */
+          border: none;         /* Menghilangkan garis border abu-abu bawaan */
+      }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            line-height: 1.4;
+        }
+
+        /* --- LINKS / BUTTONS --- */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Menggeser teks ke kiri agar rapi dengan ikon */
+            text-align: left;
+            padding: 16px 20px; /* Sedikit lebih tebal agar mudah ditekan orang tua */
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: var(--radius);
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Gaya untuk pembungkus ikon */
+        .btn-link .btn-icon {
+            font-size: 1.4rem;
+            margin-right: 14px;
+            flex-shrink: 0; /* Mencegah ikon mengecil jika teks panjang */
+        }
+
+        .btn-link:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Highlight khusus untuk tombol utama */
+        .btn-link.featured {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .btn-link.featured:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* --- TOAST NOTIFICATION (JS) --- */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            background: #334155;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+        <img src="https://pertanian.jatimprov.go.id/storage/2019/10/logo-kementan.png" alt="Logo Kementerian Pertanian RI">
+        <h1>BPP Petanahan</h1>
+        <p>Kumpulan Link Penting Penyuluh Pertanian BPP Kecamatan Petanahan Kabupaten Kebumen</p>
+        </div>
+
+        <div class="links-wrapper">
+            <a href="https://drive.google.com/drive/folders/1Fl9F67n3zP-kR02mipk7XAcfUtDtCm2Y?usp=drive_link" class="btn-link featured" target="_blank">
+                <span class="btn-icon">📁</span>
+                <span>Berkas Administrasi</span>
+            </a>
+            
+            <a href="https://drive.google.com/drive/folders/1iPKunTQ6nV4K-YVsRyhcprxiio9KvVKa?usp=sharing" class="btn-link" target="_blank">
+                <span class="btn-icon">📚</span>
+                <span>Kumpulan Materi dan Berkas lainnya</span>
+            </a>
+            
+            <a href="https://dev.epusluh.id/home" class="btn-link" target="_blank">
+                <span class="btn-icon">📊</span>
+                <span>Laporan Epusluh (LTT, Pupuk, GKP, Jagung, Target Panen, Diseminasi)</span>
+            </a>
+            
+            <a href="https://survey.pertanian.go.id/kelompencapir/login" class="btn-link" target="_blank">
+                <span class="btn-icon">📱</span>
+                <span>Laporan Kelompencapir Digital</span>
+            </a>
+            
+            <a href="https://dev.epusluh.id/home" class="btn-link" target="_blank">
+                <span class="btn-icon">👤</span>
+                <span>E-PERSONAL (SINERGI, E-KEHADIRAN, MONITORING LAYANAN)</span>
+            </a>
+            
+            <a href="https://ebanper.pertanian.go.id/login" class="btn-link" target="_blank">
+                <span class="btn-icon">📝</span>
+                <span>Form Laporan Pelaksanaan Tugas dan Fungsi</span>
+            </a>
+            
+            <a href="https://ebanper.pertanian.go.id/login" class="btn-link" target="_blank">
+                <span class="btn-icon">💰</span>
+                <span>E-BANPER</span>
+            </a>
+            
+            <a href="https://siapluh.id/admin/login" class="btn-link" target="_blank">
+                <span class="btn-icon">🚀</span>
+                <span>SiAPLuh</span>
+            </a>
+            
+            <a href="https://2025.epusluh.id/admin/login" class="btn-link" target="_blank">
+                <span class="btn-icon">⚙️</span>
+                <span>Admin e-Pusluh</span>
+            </a>
+            
+            <a href="https://simluh.pertanian.go.id/" class="btn-link" target="_blank">
+                <span class="btn-icon">🌾</span>
+                <span>Simluhtan</span>
+            </a>
+            
+            <a href="https://erdkk25.pertanian.go.id/" class="btn-link" target="_blank">
+                <span class="btn-icon">🌱</span>
+                <span>e-RDKK Pupuk Bersubsidi</span>
+            </a>
+            
+            <a href="https://everval.pertanian.go.id/" class="btn-link" target="_blank">
+                <span class="btn-icon">✅</span>
+                <span>E-Verval Pupuk Bersubsidi</span>
+            </a>
+            
+            <a href="https://xstar.bphmigas.go.id/login" class="btn-link" target="_blank">
+                <span class="btn-icon">⛽</span>
+                <span>X-Star Rekom BBM Bersubsidi</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; <span id="year"></span> BPP Petanahan. All rights reserved.
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Notifikasi</div>
+
+    <script>
+        // Otomatis update tahun di footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Fungsi untuk memunculkan notifikasi clean (Toast)
+        function showAlert(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            // Hilang otomatis setelah 3 detik
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
